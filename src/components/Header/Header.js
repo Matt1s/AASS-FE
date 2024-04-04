@@ -6,7 +6,9 @@ function Header(){
     <header className="header">
         <img src={logo} className="App-logo" alt="Lendify" />
         <div className="navigation">
-            {/* TO DO: Add the correct path to the Link component */}
+            <a href='/'> Home </a>
+            <a href='/delivery'> Delivery </a>
+            <a href='/pickup'> Pickup </a>
         </div>  
     </header>
     );
