@@ -1,13 +1,10 @@
-import './App.css';
-import Header from './components/Header/Header';
-import AutentificationScreen from './components/AutentificationScreen/AutentificationScreen';
-import DeliveryScreen from './components/DeliveryScreen/DeliveryScreen';
-import PickupScreen from './components/PickupScreen/PickupScreen';
+import "./App.css";
+import Header from "./components/Header/Header";
+import AutentificationScreen from "./components/AutentificationScreen/AutentificationScreen";
+import PickupScreen from "./components/PickupScreen/PickupScreen";
+import DeliveryScreen from "./components/DeliveryScreen/DeliveryScreen";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -15,13 +12,13 @@ const router = createBrowserRouter([
     element: <AutentificationScreen />,
   },
   {
-    path: '/delivery',
+    path: "/delivery",
     element: <DeliveryScreen />,
   },
   {
-    path: '/pickup',
+    path: "/pickup",
     element: <PickupScreen />,
-  }
+  },
 ]);
 
 function App() {

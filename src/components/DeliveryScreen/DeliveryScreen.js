@@ -1,16 +1,11 @@
-import './style.css'
-
-
-
-
-
+import "./style.css";
 
 function DeliveryScreen() {
-    return (
-        <div>
-            <h1>Delivery</h1>
-        </div>
-    );
+  return (
+    <div>
+      <h1>DeliveryScreen</h1>
+    </div>
+  );
 }
 
 export default DeliveryScreen;
