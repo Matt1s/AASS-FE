@@ -1,10 +1,16 @@
 import "./App.css";
-import Header from "./components/Header/Header";
+
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 import AutentificationScreen from "./components/AutentificationScreen/AutentificationScreen";
 import PickupScreen from "./components/PickupScreen/PickupScreen";
 import DeliveryScreen from "./components/DeliveryScreen/DeliveryScreen";
+import Header from "./components/Header/Header";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -21,12 +27,16 @@ const router = createBrowserRouter([
   },
 ]);
 
+
+// Display the Header component in the App component on all pages.
 function App() {
   return (
     <div className="App">
       <Header />
       <div className="content">
-        <RouterProvider router={router} />
+      <RouterProvider router={router}>
+
+      </RouterProvider>
       </div>
     </div>
   );

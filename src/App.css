@@ -47,10 +47,16 @@ body {
   margin: 3rem 0;
   padding: 3rem;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   width: 100%;
   border-radius: 50px;
   border: 1px solid white;
   background-color: white;
+}
+.navigation{
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+  gap: 1rem;
 }
