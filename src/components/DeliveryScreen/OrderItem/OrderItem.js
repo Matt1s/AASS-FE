@@ -1,5 +1,3 @@
-import react from "react";
-
 import {Button} from "react-bootstrap";
 
 function OrderItem(props) {
@@ -11,8 +9,10 @@ function OrderItem(props) {
             <td className="order-status">Status</td>
             <td className="order-actions">
                 {!props.boxId ?
-                <Button variant="primary" size="sm" onClick={() => props.openModal(props.orderId)}>Deliver to box</Button>
-                : null}
+                    <Button variant="primary" size="sm" onClick={() => props.openModal(props.orderId)}>Deliver to box</Button>
+                    : 
+                    <p class="m-0">Delivered ✅</p>
+                }
             </td>
         </tr>
     );

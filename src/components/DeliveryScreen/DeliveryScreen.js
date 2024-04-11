@@ -2,11 +2,27 @@ import "./style.css";
 
 import OrderItem from "./OrderItem/OrderItem";
 import {Modal, Button} from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
 function DeliveryScreen() {
+
+  // on component mount, fetch data from server
+  const [packages, setPackages] = useState([]);
+
+  const COURRIER_ID = 1;
+
+  async function fetchPackages() {
+    let response = await fetch(`http://localhost:3001/packages/${COURRIER_ID}`);
+    let data = await response.json();
+    setPackages(data);
+  };
+
+  /*useEffect(() => {
+    fetchPackages();
+  }, []);*/
+
 
   const [currentOrderId, setOrderId] = useState(0);
 
@@ -32,7 +48,7 @@ function DeliveryScreen() {
       console.log("Box ID: " + boxId);
 
       // Send data to server
-      let response = await fetch("http://localhost:3001/deliver", {
+      let response = await fetch(`http://localhost:3001/package/${packageId}/${boxId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -92,13 +108,16 @@ function DeliveryScreen() {
           <th>Status</th>
           <th className="th-actions">Actions</th>
         </tr>
-        <OrderItem orderId={1001} openModal={() => handleOpen(1001)}/>
-        <OrderItem orderId={1002} openModal={() => handleOpen(1002)}/>
-        <OrderItem orderId={1003} openModal={() => handleOpen(1003)}/>
-        <OrderItem orderId={1004} openModal={() => handleOpen(1004)}/>
-        <OrderItem orderId={1005} openModal={() => handleOpen(1005)}/>
-        <OrderItem orderId={1006} openModal={() => handleOpen(1006)}/>
-        <OrderItem orderId={1007} openModal={() => handleOpen(1007)}/>
+        <OrderItem boxId={null} orderId={1001} openModal={() => handleOpen(1001)}/>
+        <OrderItem boxId={null} orderId={1002} openModal={() => handleOpen(1002)}/>
+        <OrderItem boxId={null} orderId={1003} openModal={() => handleOpen(1003)}/>
+        <OrderItem boxId={null} orderId={1004} openModal={() => handleOpen(1004)}/>
+        <OrderItem boxId={null} orderId={1005} openModal={() => handleOpen(1005)}/>
+        <OrderItem boxId={'TEST'} orderId={1006} openModal={() => handleOpen(1006)}/>
+        <OrderItem boxId={null} orderId={1007} openModal={() => handleOpen(1007)}/>
+        {packages.map((packageItem) => {
+          return <OrderItem boxId={packageItem.boxId} orderId={packageItem.packageId} openModal={() => handleOpen(packageItem.packageId)}/>
+        })}
       </table>
     </div>
 
