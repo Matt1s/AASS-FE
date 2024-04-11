@@ -98,15 +98,43 @@ const randomData = [
     pickUpLocation: "Aupark Bratislava",
     deliveryService: "GLS",
   },
+  {
+    name: "RukaHore",
+    packageNumber: 111222333,
+    price: 6.99,
+    pickUpLocation: "Bratislava Eurove",
+    deliveryService: "DPD",
+  },
+  {
+    name: "Zdravie.sk",
+    packageNumber: 987654321,
+    price: 49.99,
+    pickUpLocation: "Bratislava Hlavna",
+    deliveryService: "Slovakia Post",
+  },
+  {
+    name: "ModryKonik.sk",
+    packageNumber: 456123789,
+    price: 9.99,
+    pickUpLocation: "Trnava Centrum",
+  },
 ];
 
 function PickupScreen() {
   const [activeKey, setActiveKey] = useState("#link0");
 
+  const [data, setData] = useState(randomData);
+
   const handleSelect = (key) => {
     console.log(key);
     setActiveKey(key);
   };
+
+  // Function to remove the package from the list based on the package number
+  function popPackage(value) {
+    console.log("popPackage", value);
+    setData(data.filter((item) => item.packageNumber !== value));
+  }
 
   return (
     <div
@@ -130,7 +158,7 @@ function PickupScreen() {
           <Row>
             <Col sm={4}>
               <ListGroup>
-                {randomData.map((item, index) => (
+                {data.map((item, index) => (
                   <ListGroup.Item
                     key={index}
                     action
@@ -147,9 +175,9 @@ function PickupScreen() {
             </Col>
             <Col sm={8}>
               <Tab.Content>
-                {randomData.map((item, index) => (
+                {data.map((item, index) => (
                   <Tab.Pane key={index} eventKey={`#link${index}`}>
-                    <Package packageInfo={item} />
+                    <Package info={item} pop={(value) => popPackage(value)} />
                   </Tab.Pane>
                 ))}
               </Tab.Content>
