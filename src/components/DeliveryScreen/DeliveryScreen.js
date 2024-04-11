@@ -23,10 +23,9 @@ function DeliveryScreen() {
 
   function ModalDelivery(props) {
 
-    const [packageId, setPackageId] = useState(0);
     const [boxId, setBoxId] = useState(0);
 
-    async function submitForm(event){
+    async function submitForm(event, packageId){
 
       event.preventDefault();
       console.log("Package ID: " + packageId);
@@ -57,18 +56,18 @@ function DeliveryScreen() {
       <Modal show={open} onHide={handleClose}>
         <Modal.Dialog>
           <Modal.Header closeButton>
-            <Modal.Title>Balík číslo: {props.orderId}</Modal.Title>
+            <Modal.Title>Vloženie balíka: {props.orderId}</Modal.Title>
           </Modal.Header>
   
           <Modal.Body>
-            <form className="row" onSubmit={(event) => submitForm(event)}>
+            <form className="row" onSubmit={(event) => submitForm(event, props.orderId)}>
               <div className="col-6">
                 <p>ID Balíkoboxu</p>
                 <input name="boxId" type="number" className="form-control" onChange={(e) => setBoxId(e.target.value)}/>
               </div>
               <div className="col-6">
                 <p>ID Balíka</p>
-                <input name="packageId" type="number" className="form-control" onChange={(e) => setPackageId(e.target.value)}/>
+                <input name="packageId" type="number" className="form-control" value={props.orderId} disabled/>
               </div>
               <div className="col-12 p-3 d-flex justify-center align-center">
                 <Button variant="primary" type="submit">Submit</Button>
