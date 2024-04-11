@@ -22,7 +22,7 @@ export default function Package(data) {
           Pick up
         </Button>
 
-        <Button variant="primary" className="m-2 w-25">
+        <Button variant="outline-danger" className="m-2 w-25">
           Prolong
         </Button>
       </div>
