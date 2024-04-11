@@ -24,6 +24,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    height: 50px;
 }
 .th-actions{
     text-align: center;
@@ -31,4 +32,19 @@
 th{
     height: 50px;
     padding: 10px;
+}
+.order-package-id{
+    text-align: center;
+    font-weight: 600;
+}
+.modal-dialog{
+    background-color: transparent;
+    border: none;
+}
+.modal-content{
+    border: none;
+}
+.modal-content > .modal-dialog{
+    background-color: white;
+    border-radius: 12px;
 }
