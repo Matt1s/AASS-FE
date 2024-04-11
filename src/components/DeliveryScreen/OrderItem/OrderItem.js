@@ -10,8 +10,7 @@ function OrderItem(props) {
             <td className="order-due-date">DD.MM.YYYY</td>
             <td className="order-status">Status</td>
             <td className="order-actions">
-                <Button variant="outline-primary" size="sm">Detail</Button>
-                <Button variant="outline-danger" size="sm">Cancel</Button>
+                <Button variant="primary" size="sm">Deliver to box</Button>
             </td>
         </tr>
     );
